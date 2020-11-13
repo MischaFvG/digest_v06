@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>mainDigestPage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-success border-bottom shadow-sm">
+    <h3 class="my-0 mr-md-auto font-weight-normal text-white">Дайджест вакансій</h3>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-white" href="/addVacancy">Створити вакансію</a>
+    </nav>
+</div>
+<div class="container mt-5">
+    <h1>Список доступних ваканцій</h1>
+    <div th:each="element : ${vacancyModels}" class="alert alert-info mt-2">
+        <h4 th:text="${element.vacancyName}"></h4>
+        <h6 th:text="'Вакансія дійсна до ' + ${element.endVacancyDate}"></h6>
+        <a th:href="'/moreVacancyInformation/'+${element.id}" class="btn btn-warning">Детальніше</a>
+    </div>
+</div>
+<div class="container mt-5">
+    <h6>Створено by Fridrich_von_Gutem, он же Мойша, та за підтримки HR_Corporation</h6>
+</div>
+</body>
+</html>
